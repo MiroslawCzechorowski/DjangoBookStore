@@ -5,7 +5,7 @@ from .models import Buty
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'price', 'stock')
+    list_display = ('title', 'author', 'description', 'publish_date', 'price', 'stock')
 
 
 class ButyAdmin(admin.ModelAdmin):
