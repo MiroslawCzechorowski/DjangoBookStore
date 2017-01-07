@@ -26,19 +26,38 @@ SECRET_KEY = '^5v*$wy#z%!zf0nw_wk&b^ph_-fs)w#c4fz9@j@gurfk1vg859'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+REGISTRATION_EMAIL_HTML = False
+LOGIN_REDIRECT_URL = '/'
 
+
+#Email configuration
+EMAIL_HOST = 'mailtrap.io'
+EMAIL_HOST_USER = '09205445f31e72'
+EMAIL_HOST_PASSWORD = '2977e2646233dd'
+EMAIL_PORT = '2525'
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'registration',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'store',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+
 ]
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,10 +82,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
+AUTHENTICATION_BACKENDS = (
+
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 WSGI_APPLICATION = 'Lab3.wsgi.application'
 
