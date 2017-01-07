@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+            <h2> You have {{ books.count }}
+                {% if books.count <= 1 %}
+                    book
+                {% else %}
+                    books
+                {% endif %}  in Your store</h2>
+<hr>
+            <table class="table .table-striped">
+                <thead>
+                    <tr>
+                        <td>Title</td>
+                        <td>Author</td>
+                        <td>Price</td>
+                        <td>Stock</td>
+                    </tr>
+                </thead>
+
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.price }}</td>
+                    <td>{{ book.stock }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+</div>
+{% endblock %}
