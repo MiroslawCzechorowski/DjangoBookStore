@@ -10,6 +10,7 @@ class Book (models.Model):
     price = models.DecimalField(decimal_places=2,max_digits=8)
     stock = models.IntegerField(default=0)
     description = models.TextField()
+    date = models.DateField(default=timezone.now)
     publish_date = models.DateField(default=timezone.now)
 
 

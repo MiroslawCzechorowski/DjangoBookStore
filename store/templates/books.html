@@ -2,12 +2,7 @@
 
 {% block content %}
 <div class="container">
-            <h2> You have {{ books.count }}
-                {% if books.count <= 1 %}
-                    book
-                {% else %}
-                    books
-                {% endif %}  in Your store</h2>
+            <h2> You have {{ books.count }} book{{ books.count | pluralize }}.</h2>
 <hr>
             <table class="table .table-striped">
                 <thead>
@@ -15,7 +10,7 @@
                         <td>Title</td>
                         <td>Author</td>
                         <td>Description</td>
-                        <td>Publish date</td>
+                        <td>Data wydania</td>
                         <td>Price</td>
                         <td>Stock</td>
                     </tr>
@@ -26,7 +21,7 @@
                     <td>{{ book.title }}</td>
                     <td>{{ book.author }}</td>
                     <td>{{ book.description }}</td>
-                    <td>{{ book.publish_date }}</td>
+                    <td>{{ book.date }}</td>
                     <td>{{ book.price }}</td>
                     <td>{{ book.stock }}</td>
                 </tr>

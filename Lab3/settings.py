@@ -26,11 +26,6 @@ SECRET_KEY = '^5v*$wy#z%!zf0nw_wk&b^ph_-fs)w#c4fz9@j@gurfk1vg859'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-REGISTRATION_EMAIL_HTML = False
-LOGIN_REDIRECT_URL = '/'
-
 
 #Email configuration
 EMAIL_HOST = 'mailtrap.io'
@@ -60,6 +55,7 @@ INSTALLED_APPS = [
 ]
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
 REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
+LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
